@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Achievements - Digital Pathshala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-in">
+
+<div class="live-bg" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+  <span class="grid"></span>
+</div>
+
+<nav>
+  <div class="brand">DIGITAL <span class="red">PATHSHALA</span></div>
+  <div class="nav-right">
+    <button class="nav-cta" onclick="location.href='admission.html'">New Admission</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="side-overlay" id="overlay" onclick="closeMenu()"></div>
+<aside class="side-menu" id="sideMenu">
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSub(this)">About <span class="chev">▾</span></div>
+    <div class="submenu">
+      <a href="about-coaching.html" onclick="closeMenu()">About Coaching</a>
+      <a href="about-website.html" onclick="closeMenu()">About Website</a>
+    </div>
+  </div>
+  <div class="menu-item"><a class="menu-link" href="index.html" onclick="closeMenu()">Home</a></div>
+  <div class="menu-item"><a class="menu-link" href="index.html#batches" onclick="closeMenu()">Batches</a></div>
+  <div class="menu-item"><a class="menu-link" href="admission.html" onclick="closeMenu()">New Admission</a></div>
+  <div class="menu-item"><a class="menu-link" href="pay.html" onclick="closeMenu()">Pay Your Fee</a></div>
+  <div class="menu-item"><a class="menu-link" href="achievements.html" onclick="closeMenu()">Our Achievements</a></div>
+  <div class="menu-item"><a class="menu-link" href="achievements.html" onclick="closeMenu()">Our Achievements</a></div>
+  <div class="menu-item"><a class="menu-link" href="index.html#location" onclick="closeMenu()">Location / Contact</a></div>
+</aside>
+
+<section>
+  <h2 class="section-title reveal">Our <span class="red">Achievements</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Proud moments of Digital Pathshala students</p>
+  <div class="gallery" id="gallery">
+    <div class="g-item reveal" onclick="openLightbox(this)"><img src="images/ach1.jpg" alt="Achievement 1" onerror="this.src='https://via.placeholder.com/400x300/1a0003/e50914?text=Achievement+1'" /><div class="g-caption">Achievement 1</div></div>
+    <div class="g-item reveal" onclick="openLightbox(this)"><img src="images/ach2.jpg" alt="Achievement 2" onerror="this.src='https://via.placeholder.com/400x300/1a0003/e50914?text=Achievement+2'" /><div class="g-caption">Achievement 2</div></div>
+    <div class="g-item reveal" onclick="openLightbox(this)"><img src="images/ach3.jpg" alt="Achievement 3" onerror="this.src='https://via.placeholder.com/400x300/1a0003/e50914?text=Achievement+3'" /><div class="g-caption">Achievement 3</div></div>
+    <div class="g-item reveal" onclick="openLightbox(this)"><img src="images/ach4.jpg" alt="Achievement 4" onerror="this.src='https://via.placeholder.com/400x300/1a0003/e50914?text=Achievement+4'" /><div class="g-caption">Achievement 4</div></div>
+    <div class="g-item reveal" onclick="openLightbox(this)"><img src="images/ach5.jpg" alt="Achievement 5" onerror="this.src='https://via.placeholder.com/400x300/1a0003/e50914?text=Achievement+5'" /><div class="g-caption">Achievement 5</div></div>
+    <div class="g-item reveal" onclick="openLightbox(this)"><img src="images/ach6.jpg" alt="Achievement 6" onerror="this.src='https://via.placeholder.com/400x300/1a0003/e50914?text=Achievement+6'" /><div class="g-caption">Achievement 6</div></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,.92);align-items:center;justify-content:center;cursor:zoom-out">
+  <img id="lbImg" style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 0 40px rgba(229,9,20,.4)" />
+</div>
+
+<footer>
+  <p>&copy; 2026 <span class="red">Digital Pathshala</span>. All rights reserved.</p>
+  <p style="margin-top:6px">Developed by Akarshit Dixit &bull; Operated by Atharva Dixit</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+<script>
+  function openLightbox(el){
+    const img=el.querySelector('img');
+    document.getElementById('lbImg').src=img.src;
+    document.getElementById('lightbox').style.display='flex';
+  }
+  function closeLightbox(){document.getElementById('lightbox').style.display='none';}
+</script>
+</body>
+</html>
