@@ -439,14 +439,51 @@
   </div>
 </section>
 
+
+
+<!-- ATTENDANCE / HOMEWORK / REPORT CARD -->
+<section id="studentzone">
+  <h2 class="section-title reveal">Student <span class="red">Zone</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Quick access for students</p>
+  <div class="about-grid">
+    <div class="card reveal"><h3>Attendance</h3><p>Track your attendance record online.</p><button class="btn btn-ghost" style="margin-top:10px" onclick="showToast('Coming soon!')">View</button></div>
+    <div class="card reveal"><h3>Homework</h3><p>Check daily assignments and submissions.</p><button class="btn btn-ghost" style="margin-top:10px" onclick="showToast('Coming soon!')">View</button></div>
+    <div class="card reveal"><h3>Report Card</h3><p>Download your exam report cards.</p><button class="btn btn-ghost" style="margin-top:10px" onclick="showToast('Coming soon!')">View</button></div>
+    <div class="card reveal"><h3>Fee Receipt</h3><p>Download payment receipts anytime.</p><button class="btn btn-ghost" style="margin-top:10px" onclick="showToast('Coming soon!')">View</button></div>
+  </div>
+</section>
+
+<!-- THEME TOGGLE -->
+<section id="theme">
+  <h2 class="section-title reveal">Theme <span class="red">Preference</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Choose your look</p>
+  <div class="pay-wrap reveal">
+    <button class="btn btn-primary" onclick="toggleTheme()">Toggle Light/Dark</button>
+    <p style="color:var(--grey);margin-top:12px;font-size:.85rem">Default: Red &amp; Black</p>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section id="search">
+  <h2 class="section-title reveal">Search <span class="red">Site</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Find anything quickly</p>
+  <div class="pay-wrap reveal">
+    <input type="text" id="siteSearch" placeholder="Search..." style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:#0a0a0a;color:var(--white);font-family:inherit;font-size:1rem;margin:14px 0" oninput="doSearch()" />
+    <div id="searchResults" style="color:var(--grey);font-size:.9rem;text-align:left"></div>
+  </div>
+</section>
+
 <footer>
   <p>&copy; 2026 <span class="red">Digital Pathshala</span>. All rights reserved.</p>
-  <p style="margin-top:6px">Created by <span class="red" style="font-weight:700">ASM</span> &bull; <span style="color:#ffd700">+91 7081548181</span></p>
+  <p style="margin-top:6px">Created by <span class="red" style="font-weight:700">ASM</span> &bull; <span style="color:#ffd700">+91 9134441444</span></p>
   <div style="margin-top:10px;display:flex;gap:12px;justify-content:center">
     <a href="#" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="Facebook">f</a>
     <a href="#" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="Instagram">ig</a>
     <a href="#" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="YouTube">yt</a>
-    <a href="tel:+917081548181" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="Call">📞</a>
+    <a href="tel:+919134441444" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="Call">📞</a>
   </div>
   <p style="margin-top:4px;font-size:.8rem;opacity:.7">For Digital Pathshala &bull; Dev: Akarshit Dixit &bull; Ops: Atharva Dixit</p>
 </footer>

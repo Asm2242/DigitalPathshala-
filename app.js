@@ -136,7 +136,7 @@ setTimeout(()=>{
   bt.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
   document.body.appendChild(bt);
   const fc=document.createElement('a');
-  fc.id='floatCall';fc.href='tel:+917081548181';fc.title='Call us';fc.innerHTML='📞';
+  fc.id='floatCall';fc.href='tel:+919134441444';fc.title='Call us';fc.innerHTML='📞';
   document.body.appendChild(fc);
   window.addEventListener('scroll',()=>{
     if(window.scrollY>300) bt.classList.add('show'); else bt.classList.remove('show');
@@ -195,4 +195,22 @@ function calcFee(){
   const total=rate*months;
   const el=document.getElementById('calcResult');
   if(el) el.textContent='Total: Rs.'+total.toLocaleString('en-IN')+' for '+months+' month(s)';
+}
+
+
+// Theme toggle (light/dark)
+function toggleTheme(){
+  document.body.classList.toggle('light-theme');
+  showToast(document.body.classList.contains('light-theme')?'Light theme':'Dark theme');
+}
+
+// Site search
+function doSearch(){
+  const q=(document.getElementById('siteSearch')?.value||'').toLowerCase();
+  const res=document.getElementById('searchResults');
+  if(!res) return;
+  if(!q){res.innerHTML='';return;}
+  const pages=['Home','Batches','Admission','Pay Fee','About Coaching','About Website','Achievements','Toppers','FAQ','Contact'];
+  const matches=pages.filter(x=>x.toLowerCase().includes(q));
+  res.innerHTML=matches.length? 'Found: '+matches.join(', '):'No results';
 }

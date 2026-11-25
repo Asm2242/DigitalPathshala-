@@ -403,3 +403,12 @@ a:active,button:active,.btn:active,.card:active,.batch-card:active,.menu-link:ac
 /* ---------- NEWSLETTER ---------- */
 .news-wrap{max-width:520px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;text-align:center}
 .news-wrap input{width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:#0a0a0a;color:var(--white);font-family:inherit;font-size:.95rem;margin:14px 0}
+
+
+/* ---------- LIGHT THEME ---------- */
+body.light-theme{background:#f5f5f5;color:#111}
+body.light-theme .live-bg{background:#f5f5f5}
+body.light-theme .card,body.light-theme .batch-card,body.light-theme .form-wrap,body.light-theme .pay-wrap,body.light-theme .addr,body.light-theme .news-wrap{background:#fff;color:#111;border-color:rgba(0,0,0,.1)}
+body.light-theme .form-group input,body.light-theme .form-group select,body.light-theme .pay-wrap input,body.light-theme .news-wrap input{background:#f0f0f0;color:#111}
+body.light-theme footer{color:#555}
+body.light-theme .section-sub,body.light-theme .faq-a{color:#555}
