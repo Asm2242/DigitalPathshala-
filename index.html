@@ -288,9 +288,78 @@
   </div>
 </section>
 
+
+
+<!-- FEE CALCULATOR -->
+<section id="feecalc">
+  <h2 class="section-title reveal">Fee <span class="red">Calculator</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Calculate your total fee</p>
+  <div class="pay-wrap reveal">
+    <label style="color:var(--grey);font-size:.9rem">Select Batch</label>
+    <select id="calcBatch" style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:#0a0a0a;color:var(--white);font-family:inherit;font-size:1rem;margin:14px 0">
+      <option value="1200">NEEV (9th) - Rs.1200/mo</option>
+      <option value="1500">DHURANDAR (10th) - Rs.1500/mo</option>
+      <option value="2400">ICSE Warrior - Rs.2400/mo</option>
+    </select>
+    <label style="color:var(--grey);font-size:.9rem">Months</label>
+    <input type="number" id="calcMonths" placeholder="e.g. 3" min="1" max="12" value="1" style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:#0a0a0a;color:var(--white);font-family:inherit;font-size:1rem;margin:14px 0" />
+    <button class="btn btn-primary" style="width:100%" onclick="calcFee()">Calculate</button>
+    <div id="calcResult" style="margin-top:16px;font-size:1.2rem;color:var(--red);font-weight:700"></div>
+  </div>
+</section>
+
+<!-- SCHOLARSHIP -->
+<section id="scholarship">
+  <h2 class="section-title reveal">Scholarships &amp; <span class="red">Discounts</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Merit-based financial support</p>
+  <div class="about-grid">
+    <div class="card reveal"><h3>Merit Scholarship</h3><p>Top performers get up to 25% fee waiver.</p></div>
+    <div class="card reveal"><h3>Sibling Discount</h3><p>10% discount for siblings enrolled together.</p></div>
+    <div class="card reveal"><h3>Early Bird</h3><p>5% off for fees paid 3 months in advance.</p></div>
+  </div>
+</section>
+
+<!-- TIMETABLE -->
+<section id="timetable">
+  <h2 class="section-title reveal">Class <span class="red">Timetable</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Weekly schedule</p>
+  <div style="overflow-x:auto" class="reveal">
+    <table style="width:100%;border-collapse:collapse;min-width:500px">
+      <thead><tr style="background:var(--red);color:#fff"><th style="padding:10px;border:1px solid var(--border)">Day</th><th style="padding:10px;border:1px solid var(--border)">NEEV</th><th style="padding:10px;border:1px solid var(--border)">DHURANDAR</th><th style="padding:10px;border:1px solid var(--border)">ICSE Warrior</th></tr></thead>
+      <tbody style="color:var(--grey)">
+        <tr><td style="padding:10px;border:1px solid var(--border);color:var(--white)">Mon-Fri</td><td style="padding:10px;border:1px solid var(--border)">4-6 PM</td><td style="padding:10px;border:1px solid var(--border)">6-8 PM</td><td style="padding:10px;border:1px solid var(--border)">4-7 PM</td></tr>
+        <tr><td style="padding:10px;border:1px solid var(--border);color:var(--white)">Saturday</td><td style="padding:10px;border:1px solid var(--border)">Test Day</td><td style="padding:10px;border:1px solid var(--border)">Test Day</td><td style="padding:10px;border:1px solid var(--border)">Test Day</td></tr>
+        <tr><td style="padding:10px;border:1px solid var(--border);color:var(--white)">Sunday</td><td style="padding:10px;border:1px solid var(--border)" colspan="3">Holiday</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TRANSPORT -->
+<section id="transport">
+  <h2 class="section-title reveal">Transport &amp; <span class="red">Facilities</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Comfortable learning environment</p>
+  <div class="about-grid">
+    <div class="card reveal"><h3>AC Classrooms</h3><p>Fully air-conditioned rooms for comfortable learning.</p></div>
+    <div class="card reveal"><h3>Transport</h3><p>Pickup/drop facility available on request.</p></div>
+    <div class="card reveal"><h3>Library</h3><p>Well-stocked library with reference books.</p></div>
+    <div class="card reveal"><h3>Computer Lab</h3><p>Digital learning with smart boards.</p></div>
+  </div>
+</section>
+
 <footer>
   <p>&copy; 2026 <span class="red">Digital Pathshala</span>. All rights reserved.</p>
   <p style="margin-top:6px">Created by <span class="red" style="font-weight:700">ASM</span> &bull; <span style="color:#ffd700">+91 7081548181</span></p>
+  <div style="margin-top:10px;display:flex;gap:12px;justify-content:center">
+    <a href="#" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="Facebook">f</a>
+    <a href="#" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="Instagram">ig</a>
+    <a href="#" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="YouTube">yt</a>
+    <a href="tel:+917081548181" style="color:var(--grey);font-size:1.2rem;text-decoration:none" title="Call">📞</a>
+  </div>
   <p style="margin-top:4px;font-size:.8rem;opacity:.7">For Digital Pathshala &bull; Dev: Akarshit Dixit &bull; Ops: Atharva Dixit</p>
 </footer>
 

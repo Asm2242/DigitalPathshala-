@@ -186,3 +186,13 @@ function submitContact(e){
   }).then(r=>r.json()).then(()=>{showToast('Message sent!');document.getElementById('contactForm')?.reset();})
   .catch(()=>showToast('Failed. Try again.'));
 }
+
+
+// Fee calculator
+function calcFee(){
+  const rate=parseFloat(document.getElementById('calcBatch')?.value||'0');
+  const months=parseInt(document.getElementById('calcMonths')?.value||'1');
+  const total=rate*months;
+  const el=document.getElementById('calcResult');
+  if(el) el.textContent='Total: Rs.'+total.toLocaleString('en-IN')+' for '+months+' month(s)';
+}
