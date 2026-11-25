@@ -20,20 +20,45 @@
     overflow-x:hidden;
     min-height:100vh;
   }
-  /* ---------- INTRO SPLASH ---------- */
+  /* ---------- INTRO SPLASH (MAST) ---------- */
   #splash{
     position:fixed;inset:0;z-index:9999;
-    background:radial-gradient(ellipse at center,#1a0000 0%,#050505 70%);
+    background:radial-gradient(ellipse at center,#2a0000 0%,#0a0000 40%,#000 80%);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     overflow:hidden;
   }
-  #splash .bg-lines{
-    position:absolute;inset:0;pointer-events:none;
+  #splash .bg-grid{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(229,9,20,.08) 1px,transparent 1px),
+                    linear-gradient(90deg,rgba(229,9,20,.08) 1px,transparent 1px);
+    background-size:50px 50px;
+    animation:gridmove 4s linear infinite;
+    mask-image:radial-gradient(ellipse at center,black 20%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at center,black 20%,transparent 75%);
   }
+  #splash .ring{
+    position:absolute;width:320px;height:320px;border-radius:50%;
+    border:2px solid transparent;
+    border-top-color:var(--red);border-right-color:var(--red2);
+    animation:spin 2.2s linear infinite;
+    box-shadow:0 0 40px var(--red-glow),inset 0 0 40px rgba(229,9,20,.15);
+  }
+  #splash .ring2{
+    position:absolute;width:420px;height:420px;border-radius:50%;
+    border:1px dashed rgba(229,9,20,.35);
+    animation:spin 6s linear infinite reverse;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  #splash .glow{
+    position:absolute;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(229,9,20,.45),transparent 70%);
+    filter:blur(20px);animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.25);opacity:1}}
   #splash .bg-lines span{
     position:absolute;width:2px;height:100%;
     background:linear-gradient(to bottom,transparent,var(--red),transparent);
-    opacity:.15;animation:scan 3s linear infinite;
+    opacity:.12;animation:scan 2.5s linear infinite;
   }
   @keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
   .splash-logo{
@@ -41,34 +66,41 @@
     font-size:clamp(2rem,7vw,5.5rem);
     font-weight:900;letter-spacing:4px;
     color:var(--white);text-align:center;
-    position:relative;
+    position:relative;z-index:2;
+    perspective:800px;
   }
   .splash-logo .word{display:inline-block;overflow:hidden;vertical-align:bottom}
   .splash-logo .word span{
-    display:inline-block;transform:translateY(110%);
-    animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards;
+    display:inline-block;transform:rotateY(90deg) scale(.5);
+    opacity:0;
+    animation:flipin .9s cubic-bezier(.2,.8,.2,1) forwards;
+    text-shadow:0 0 24px var(--red-glow);
   }
   .splash-logo .red{color:var(--red);text-shadow:0 0 30px var(--red-glow)}
-  @keyframes rise{to{transform:translateY(0)}}
+  @keyframes flipin{to{transform:rotateY(0) scale(1);opacity:1}}
   .splash-sub{
     margin-top:18px;font-size:clamp(.9rem,2vw,1.3rem);
-    color:var(--grey);letter-spacing:6px;text-transform:uppercase;
-    opacity:0;animation:fadein 1s ease 1.2s forwards;
+    color:var(--grey);letter-spacing:8px;text-transform:uppercase;
+    opacity:0;animation:fadein 1s ease 1.3s forwards;
+    z-index:2;position:relative;
   }
   .splash-bar{
-    margin-top:40px;width:220px;height:3px;background:rgba(255,255,255,.1);
-    border-radius:3px;overflow:hidden;opacity:0;animation:fadein .6s ease 1.4s forwards;
+    margin-top:40px;width:260px;height:4px;background:rgba(255,255,255,.08);
+    border-radius:4px;overflow:hidden;opacity:0;animation:fadein .6s ease 1.5s forwards;
+    z-index:2;position:relative;
   }
-  .splash-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--red2));
-    animation:load 1.6s ease 1.5s forwards;box-shadow:0 0 12px var(--red);}
+  .splash-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--red2),#ffd700);
+    animation:load 1.8s ease 1.6s forwards;box-shadow:0 0 16px var(--red);}
   @keyframes load{to{width:100%}}
   @keyframes fadein{to{opacity:1}}
   .splash-tag{
-    position:absolute;bottom:30px;font-size:.8rem;color:rgba(255,255,255,.35);letter-spacing:2px;
+    position:absolute;bottom:30px;font-size:.8rem;color:rgba(255,255,255,.4);letter-spacing:3px;
+    z-index:2;animation:fadein 1s ease 2s forwards;opacity:0;
   }
-  #splash.hide{animation:splashout .8s ease forwards}
-  @keyframes splashout{to{opacity:0;pointer-events:none;visibility:hidden}}
-  /* ---------- NAVBAR ---------- */
+  #splash.hide{animation:splashout .9s ease forwards}
+  @keyframes splashout{to{opacity:0;transform:scale(1.1);pointer-events:none;visibility:hidden}}
+
+/* ---------- NAVBAR ---------- */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:1000;
     display:flex;align-items:center;justify-content:space-between;

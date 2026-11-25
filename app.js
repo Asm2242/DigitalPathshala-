@@ -14,7 +14,7 @@ if(p){
 const splash=document.getElementById('splash');
 if(splash){
   window.addEventListener('load',()=>{
-    setTimeout(()=>{splash.classList.add('hide')},2200);
+    setTimeout(()=>{splash.classList.add('hide')},3600);
   });
 }
 
@@ -122,7 +122,7 @@ setTimeout(()=>{
   document.getElementById('popClose').onclick=close;
   pop.onclick=(e)=>{if(e.target===pop)close();};
   setTimeout(close,7000);
-},3200);
+},4500);
 document.querySelectorAll('.card,.batch-card').forEach(el=>{
   el.addEventListener('click',()=>{el.classList.remove('tap-pop');void el.offsetWidth;el.classList.add('tap-pop');});
 });
