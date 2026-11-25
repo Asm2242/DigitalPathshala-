@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Admission - Digital Pathshala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-in">
+
+<div class="live-bg" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+  <span class="grid"></span>
+</div>
+
+<nav>
+  <div class="brand">DIGITAL <span class="red">PATHSHALA</span></div>
+  <div class="nav-right">
+    <button class="nav-cta" onclick="location.href='admission.html'">New Admission</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="side-overlay" id="overlay" onclick="closeMenu()"></div>
+<aside class="side-menu" id="sideMenu">
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSub(this)">About <span class="chev">▾</span></div>
+    <div class="submenu">
+      <a href="about-coaching.html" onclick="closeMenu()">About Coaching</a>
+      <a href="about-website.html" onclick="closeMenu()">About Website</a>
+    </div>
+  </div>
+  <div class="menu-item"><a class="menu-link" href="index.html" onclick="closeMenu()">Home</a></div>
+  <div class="menu-item"><a class="menu-link" href="index.html#batches" onclick="closeMenu()">Batches</a></div>
+  <div class="menu-item"><a class="menu-link" href="admission.html" onclick="closeMenu()">New Admission</a></div>
+  <div class="menu-item"><a class="menu-link" href="pay.html" onclick="closeMenu()">Pay Your Fee</a></div>
+  <div class="menu-item"><a class="menu-link" href="index.html#location" onclick="closeMenu()">Location / Contact</a></div>
+</aside>
+
+<section>
+  <h2 class="section-title reveal">New <span class="red">Admission</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Fill the form and details will be sent on WhatsApp</p>
+  <div class="form-wrap reveal">
+    <form id="admissionForm" onsubmit="submitAdmission(event)">
+      <div class="form-group">
+        <label>Student Name</label>
+        <input type="text" id="sName" required placeholder="Enter student name" />
+      </div>
+      <div class="form-group">
+        <label>Class</label>
+        <select id="sClass" required>
+          <option value="">Select class</option>
+          <option value="9th">9th</option>
+          <option value="10th">10th</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>School Name</label>
+        <input type="text" id="sSchool" required placeholder="Enter school name" />
+      </div>
+      <div class="form-group">
+        <label>Father's Name</label>
+        <input type="text" id="fName" required placeholder="Enter father's name" />
+      </div>
+      <div class="form-group">
+        <label>Father's Email</label>
+        <input type="email" id="fEmail" required placeholder="Enter father's email" />
+      </div>
+      <div class="form-group">
+        <label>Mobile No.</label>
+        <input type="tel" id="sMobile" required placeholder="Enter mobile number" pattern="[0-9]{10}" />
+      </div>
+      <button type="submit" class="form-submit">Submit</button>
+    </form>
+    <div class="wa-note">Details will be sent directly. No need to open WhatsApp.</div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 <span class="red">Digital Pathshala</span>. All rights reserved.</p>
+  <p style="margin-top:6px">Developed by Akarshit Dixit &bull; Operated by Atharva Dixit</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

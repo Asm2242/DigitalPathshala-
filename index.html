@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Pathshala - Coaching Institute</title>
+<meta name="description" content="Digital Pathshala coaching institute - Neev (Class 9) and Dhurandhar (Class 10) batches for UP Board & CBSE. Sitapur." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-in">
+
+<div class="live-bg" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+  <span class="grid"></span>
+</div>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="bg-lines">
+    <span style="left:10%;animation-delay:0s"></span>
+    <span style="left:25%;animation-delay:.4s"></span>
+    <span style="left:40%;animation-delay:.8s"></span>
+    <span style="left:55%;animation-delay:1.2s"></span>
+    <span style="left:70%;animation-delay:.2s"></span>
+    <span style="left:85%;animation-delay:.6s"></span>
+  </div>
+  <div class="particles" id="particles"></div>
+  <div class="splash-logo">
+    <div class="word"><span>DIGITAL</span></div>
+    <div class="word"><span class="red">&nbsp;PATHSHALA</span></div>
+  </div>
+  <div class="splash-sub">Coaching Institute &bull; Sitapur</div>
+  <div class="splash-bar"><i></i></div>
+  <div class="splash-tag">SHAPING FUTURES</div>
+</div>
+
+<nav>
+  <div class="brand">DIGITAL <span class="red">PATHSHALA</span></div>
+  <div class="nav-right">
+    <button class="nav-cta" onclick="location.href='admission.html'">New Admission</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="side-overlay" id="overlay" onclick="closeMenu()"></div>
+<aside class="side-menu" id="sideMenu">
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSub(this)">About <span class="chev">▾</span></div>
+    <div class="submenu">
+      <a href="about-coaching.html" onclick="closeMenu()">About Coaching</a>
+      <a href="about-website.html" onclick="closeMenu()">About Website</a>
+    </div>
+  </div>
+  <div class="menu-item"><a class="menu-link" href="index.html" onclick="closeMenu()">Home</a></div>
+  <div class="menu-item"><a class="menu-link" href="#batches" onclick="closeMenu()">Batches</a></div>
+  <div class="menu-item"><a class="menu-link" href="admission.html" onclick="closeMenu()">New Admission</a></div>
+  <div class="menu-item"><a class="menu-link" href="pay.html" onclick="closeMenu()">Pay Your Fee</a></div>
+  <div class="menu-item"><a class="menu-link" href="#location" onclick="closeMenu()">Location / Contact</a></div>
+</aside>
+
+<section class="hero" id="home">
+  <h1 class="reveal">DIGITAL <span class="red">PATHSHALA</span></h1>
+  <p class="reveal">Empowering students of Class 9th &amp; 10th with quality coaching for UP Board &amp; CBSE. Build strong foundations, score higher, shape your future.</p>
+  <div class="hero-btns reveal">
+    <button class="btn btn-primary" onclick="location.href='admission.html'">New Admission</button>
+    <button class="btn btn-ghost" onclick="scrollToId('batches')">View Batches</button>
+  </div>
+  <div class="hero-stats reveal">
+    <div class="stat"><div class="num">2</div><div class="lbl">Batches</div></div>
+    <div class="stat"><div class="num">9th/10th</div><div class="lbl">Classes</div></div>
+    <div class="stat"><div class="num">1200/1500</div><div class="lbl">Per Month</div></div>
+    <div class="stat"><div class="num">UP+CBSE</div><div class="lbl">Boards</div></div>
+  </div>
+</section>
+
+<section id="batches">
+  <h2 class="section-title reveal">Our <span class="red">Batches</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Choose the batch that fits your class</p>
+  <div class="batch-grid">
+    <div class="batch-card reveal">
+      <span class="tag">Class 9th</span>
+      <h3>NEEV Batch</h3>
+      <div class="cls">For Class 9th students</div>
+      <div class="fee">1200/- <small>per month</small></div>
+      <ul>
+        <li>UP Board &amp; CBSE</li>
+        <li>Strong foundation building</li>
+        <li>Regular tests &amp; doubt sessions</li>
+        <li>Personal attention</li>
+      </ul>
+      <button class="btn btn-primary" onclick="location.href='pay.html'">Pay Fee</button>
+    </div>
+    <div class="batch-card reveal">
+      <span class="tag">Class 10th</span>
+      <h3>DHURANDAR Batch</h3>
+      <div class="cls">For Class 10th students</div>
+      <div class="fee">1500/- <small>per month</small></div>
+      <ul>
+        <li>UP Board &amp; CBSE</li>
+        <li>Board exam focused preparation</li>
+        <li>Mock tests &amp; revision</li>
+        <li>Personal attention</li>
+      </ul>
+      <button class="btn btn-primary" onclick="location.href='pay.html'">Pay Fee</button>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <h2 class="section-title reveal">Location &amp; <span class="red">Contact</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Find us here</p>
+  <div class="loc-grid">
+    <div class="addr reveal">
+      <h3>Digital Pathshala</h3>
+      <p><strong>Address:</strong> NNC Chauraha, Vijay Lakshmi Nagar, Loharbagh, Sitapur - 261001</p>
+      <p><strong>WhatsApp:</strong> +91 7398535351</p>
+      <p><strong>Classes:</strong> 9th &amp; 10th (UP Board &amp; CBSE)</p>
+      <p><strong>Fee:</strong> ₹1200/- (NEEV) &amp; ₹1500/- (DHURANDAR) per month</p>
+    </div>
+    <div class="map reveal">
+      <iframe src="https://www.google.com/maps?q=Sitapur+Uttar+Pradesh&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 <span class="red">Digital Pathshala</span>. All rights reserved.</p>
+  <p style="margin-top:6px">Developed by Akarshit Dixit &bull; Operated by Atharva Dixit</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
