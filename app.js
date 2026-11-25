@@ -104,6 +104,11 @@ const io=new IntersectionObserver((entries)=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+// tap pop effect on clickable cards
+document.querySelectorAll('.card,.batch-card').forEach(el=>{
+  el.addEventListener('click',()=>{el.classList.remove('tap-pop');void el.offsetWidth;el.classList.add('tap-pop');});
+});
+
 // welcome popup (after intro animation)
 setTimeout(()=>{
   const pop=document.createElement('div');
@@ -123,6 +128,48 @@ setTimeout(()=>{
   pop.onclick=(e)=>{if(e.target===pop)close();};
   setTimeout(close,7000);
 },4500);
-document.querySelectorAll('.card,.batch-card').forEach(el=>{
-  el.addEventListener('click',()=>{el.classList.remove('tap-pop');void el.offsetWidth;el.classList.add('tap-pop');});
-});
+
+// Back to top + floating call button (all pages)
+(function(){
+  const bt=document.createElement('button');
+  bt.id='backTop';bt.innerHTML='↑';bt.title='Back to top';
+  bt.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+  document.body.appendChild(bt);
+  const fc=document.createElement('a');
+  fc.id='floatCall';fc.href='tel:+917081548181';fc.title='Call us';fc.innerHTML='📞';
+  document.body.appendChild(fc);
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>300) bt.classList.add('show'); else bt.classList.remove('show');
+  });
+})();
+
+// Newsletter subscribe (FormSubmit)
+function subscribeNews(){
+  const email=document.getElementById('newsEmail')?.value.trim();
+  if(!email){showToast('Please enter email');return;}
+  fetch('https://formsubmit.co/ajax/rachitshukla555@gmail.com',{
+    method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:'Newsletter Subscription',Email:email})
+  }).then(r=>r.json()).then(()=>{showToast('Subscribed!');document.getElementById('newsEmail').value='';})
+  .catch(()=>showToast('Failed. Try again.'));
+}
+
+// Animated counters for hero stats
+(function(){
+  const nums=document.querySelectorAll('.hero-stats .num');
+  const animate=()=>{
+    nums.forEach(el=>{
+      const target=el.textContent;
+      const num=parseFloat(target.replace(/[^0-9.]/g,''));
+      if(isNaN(num)) return;
+      let cur=0;const steps=30;const inc=num/steps;
+      const t=setInterval(()=>{cur+=inc;if(cur>=num){cur=num;clearInterval(t);}
+        el.textContent=target.replace(/[0-9.]+/,Math.round(cur).toString());
+      },40);
+    });
+  };
+  const hero=document.querySelector('.hero-stats');
+  if(!hero) return;
+  const io=new IntersectionObserver((e)=>{if(e[0].isIntersecting){animate();io.disconnect();}},{threshold:.3});
+  io.observe(hero);
+})();

@@ -367,3 +367,39 @@ a:active,button:active,.btn:active,.card:active,.batch-card:active,.menu-link:ac
 .g-item:hover{transform:translateY(-6px) scale(1.02);border-color:var(--red);box-shadow:0 12px 30px rgba(0,0,0,.5)}
 .g-item img{width:100%;height:220px;object-fit:cover;display:block}
 .g-caption{padding:10px 14px;color:var(--grey);font-size:.9rem;text-align:center}
+
+
+/* ---------- BACK TO TOP & FLOATING CONTACT ---------- */
+#backTop{
+  position:fixed;bottom:24px;right:24px;z-index:500;
+  width:46px;height:46px;border-radius:50%;border:none;
+  background:var(--red);color:#fff;font-size:1.2rem;cursor:pointer;
+  box-shadow:0 8px 24px var(--red-glow);opacity:0;pointer-events:none;
+  transition:.3s;transform:translateY(20px);
+}
+#backTop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+#floatCall{
+  position:fixed;bottom:80px;right:24px;z-index:500;
+  width:46px;height:46px;border-radius:50%;border:none;
+  background:#25d366;color:#fff;font-size:1.3rem;cursor:pointer;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);text-decoration:none;
+  display:flex;align-items:center;justify-content:center;
+}
+/* ---------- FAQ ---------- */
+.faq{max-width:800px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:16px 20px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{color:var(--red2)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 20px;color:var(--grey);font-size:.95rem;line-height:1.6}
+.faq-item.open .faq-a{max-height:300px;padding:0 20px 16px}
+.faq-item.open .faq-q span{transform:rotate(45deg)}
+/* ---------- TESTIMONIALS ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;position:relative}
+.testi-card::before{content:"C";position:absolute;top:10px;left:16px;font-size:3rem;color:var(--red);opacity:.3;font-family:serif}
+.testi-card p{color:var(--grey);font-size:.95rem;line-height:1.6;margin-bottom:12px;padding-top:18px}
+.testi-card .who{color:var(--white);font-weight:600;font-size:.9rem}
+.testi-card .who span{color:var(--grey);font-weight:400;font-size:.8rem}
+/* ---------- NEWSLETTER ---------- */
+.news-wrap{max-width:520px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;text-align:center}
+.news-wrap input{width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:#0a0a0a;color:var(--white);font-family:inherit;font-size:.95rem;margin:14px 0}
