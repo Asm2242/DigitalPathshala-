@@ -66,6 +66,9 @@
   <div class="menu-item"><a class="menu-link" href="admission.html" onclick="closeMenu()">New Admission</a></div>
   <div class="menu-item"><a class="menu-link" href="pay.html" onclick="closeMenu()">Pay Your Fee</a></div>
   <div class="menu-item"><a class="menu-link" href="achievements.html" onclick="closeMenu()">Our Achievements</a></div>
+  <div class="menu-item"><a class="menu-link" href="index.html#toppers" onclick="closeMenu()">Toppers</a></div>
+  <div class="menu-item"><a class="menu-link" href="index.html#events" onclick="closeMenu()">Announcements</a></div>
+  <div class="menu-item"><a class="menu-link" href="index.html#contact" onclick="closeMenu()">Contact</a></div>
   <div class="menu-item"><a class="menu-link" href="#location" onclick="closeMenu()">Location / Contact</a></div>
 </aside>
 
@@ -205,6 +208,83 @@
   <div class="news-wrap reveal">
     <input type="email" id="newsEmail" placeholder="Enter your email" />
     <button class="btn btn-primary" style="width:100%" onclick="subscribeNews()">Subscribe</button>
+  </div>
+</section>
+
+
+
+<!-- TOPPERS / RESULTS -->
+<section id="toppers">
+  <h2 class="section-title reveal">Our <span class="red">Toppers</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Students who made us proud</p>
+  <div class="testi-grid">
+    <div class="testi-card reveal"><p>Scored 95% in Class 10 UP Board.</p><div class="who">Priya Sharma <span>- 95%</span></div></div>
+    <div class="testi-card reveal"><p>Scored 92% in Class 10 CBSE.</p><div class="who">Rahul Verma <span>- 92%</span></div></div>
+    <div class="testi-card reveal"><p>Scored 90% in Class 9.</p><div class="who">Anjali Gupta <span>- 90%</span></div></div>
+  </div>
+</section>
+
+<!-- BATCH COMPARISON -->
+<section id="compare">
+  <h2 class="section-title reveal">Batch <span class="red">Comparison</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Compare our batches at a glance</p>
+  <div style="overflow-x:auto" class="reveal">
+    <table style="width:100%;border-collapse:collapse;min-width:500px">
+      <thead>
+        <tr style="background:var(--red);color:#fff">
+          <th style="padding:12px;border:1px solid var(--border)">Feature</th>
+          <th style="padding:12px;border:1px solid var(--border)">NEEV (9th)</th>
+          <th style="padding:12px;border:1px solid var(--border)">DHURANDAR (10th)</th>
+          <th style="padding:12px;border:1px solid var(--border)">ICSE Warrior</th>
+        </tr>
+      </thead>
+      <tbody style="color:var(--grey)">
+        <tr><td style="padding:12px;border:1px solid var(--border);color:var(--white)">Fee/month</td><td style="padding:12px;border:1px solid var(--border)">Rs.1200</td><td style="padding:12px;border:1px solid var(--border)">Rs.1500</td><td style="padding:12px;border:1px solid var(--border)">Rs.2400</td></tr>
+        <tr><td style="padding:12px;border:1px solid var(--border);color:var(--white)">Board</td><td style="padding:12px;border:1px solid var(--border)">UP/CBSE</td><td style="padding:12px;border:1px solid var(--border)">UP/CBSE</td><td style="padding:12px;border:1px solid var(--border)">ICSE</td></tr>
+        <tr><td style="padding:12px;border:1px solid var(--border);color:var(--white)">Mock Tests</td><td style="padding:12px;border:1px solid var(--border)">Yes</td><td style="padding:12px;border:1px solid var(--border)">Yes</td><td style="padding:12px;border:1px solid var(--border)">Yes</td></tr>
+        <tr><td style="padding:12px;border:1px solid var(--border);color:var(--white)">Personal Attention</td><td style="padding:12px;border:1px solid var(--border)">Yes</td><td style="padding:12px;border:1px solid var(--border)">Yes</td><td style="padding:12px;border:1px solid var(--border)">Yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EVENTS / ANNOUNCEMENTS -->
+<section id="events">
+  <h2 class="section-title reveal">Latest <span class="red">Announcements</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Stay informed about upcoming events</p>
+  <div class="faq" style="max-width:800px">
+    <div class="faq-item reveal"><div class="faq-q">Admissions Open for 2026-27 <span>+</span></div><div class="faq-a">New admissions are now open for all batches. Register today!</div></div>
+    <div class="faq-item reveal"><div class="faq-q">Parent-Teacher Meeting <span>+</span></div><div class="faq-a">Scheduled every last Saturday of the month.</div></div>
+    <div class="faq-item reveal"><div class="faq-q">Scholarship Test <span>+</span></div><div class="faq-a">Merit-based scholarships available. Contact us for details.</div></div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact">
+  <h2 class="section-title reveal">Contact <span class="red">Us</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Send us a message directly</p>
+  <div class="form-wrap reveal">
+    <form id="contactForm" onsubmit="submitContact(event)">
+      <div class="form-group"><label>Name</label><input type="text" id="cName" required placeholder="Your name" /></div>
+      <div class="form-group"><label>Email</label><input type="email" id="cEmail" required placeholder="Your email" /></div>
+      <div class="form-group"><label>Message</label><textarea id="cMsg" required placeholder="Your message" style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:#0a0a0a;color:var(--white);font-family:inherit;font-size:.95rem;min-height:100px"></textarea></div>
+      <button type="submit" class="form-submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- STUDENT PORTAL (placeholder) -->
+<section id="portal">
+  <h2 class="section-title reveal">Student <span class="red">Portal</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Login coming soon</p>
+  <div class="pay-wrap reveal">
+    <p style="color:var(--grey)">Student login and dashboard will be available soon. Stay tuned!</p>
+    <button class="btn btn-primary" style="margin-top:12px" onclick="showToast('Coming soon!')">Notify Me</button>
   </div>
 </section>
 

@@ -173,3 +173,16 @@ function subscribeNews(){
   const io=new IntersectionObserver((e)=>{if(e[0].isIntersecting){animate();io.disconnect();}},{threshold:.3});
   io.observe(hero);
 })();
+
+// Contact form submit (FormSubmit)
+function submitContact(e){
+  if(e) e.preventDefault();
+  const name=document.getElementById('cName')?.value.trim()||'';
+  const email=document.getElementById('cEmail')?.value.trim()||'';
+  const msg=document.getElementById('cMsg')?.value.trim()||'';
+  fetch('https://formsubmit.co/ajax/rachitshukla555@gmail.com',{
+    method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:'Contact Message - Digital Pathshala',Name:name,Email:email,Message:msg})
+  }).then(r=>r.json()).then(()=>{showToast('Message sent!');document.getElementById('contactForm')?.reset();})
+  .catch(()=>showToast('Failed. Try again.'));
+}
