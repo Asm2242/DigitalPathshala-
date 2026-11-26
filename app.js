@@ -109,8 +109,11 @@ document.querySelectorAll('.card,.batch-card').forEach(el=>{
   el.addEventListener('click',()=>{el.classList.remove('tap-pop');void el.offsetWidth;el.classList.add('tap-pop');});
 });
 
-// welcome popup (after intro animation)
-setTimeout(()=>{
+// welcome popup (only on first open of home, once per session)
+const isHome=/index\.html$/.test(location.pathname)||location.pathname.endsWith('/')||location.pathname==='';
+if(isHome && !sessionStorage.getItem('welcomed')){
+  sessionStorage.setItem('welcomed','1');
+  setTimeout(()=>{
   const pop=document.createElement('div');
   pop.id='welcomePop';
   pop.style.cssText='position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);opacity:0;transition:opacity .4s ease';
@@ -128,6 +131,7 @@ setTimeout(()=>{
   pop.onclick=(e)=>{if(e.target===pop)close();};
   setTimeout(close,7000);
 },4500);
+}
 
 // Back to top + floating call button (all pages)
 (function(){
