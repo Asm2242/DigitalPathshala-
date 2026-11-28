@@ -775,6 +775,78 @@
   </div>
 </section>
 
+
+
+<!-- GALLERY CATEGORIES -->
+<section id="gallerycat">
+  <h2 class="section-title reveal">Photo <span class="red">Gallery</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Moments from Digital Pathshala</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px" class="reveal">
+    <button class="btn btn-ghost" style="padding:6px 14px;font-size:.85rem" onclick="showToast('All photos')">All</button>
+    <button class="btn btn-ghost" style="padding:6px 14px;font-size:.85rem" onclick="showToast('Events')">Events</button>
+    <button class="btn btn-ghost" style="padding:6px 14px;font-size:.85rem" onclick="showToast('Classes')">Classes</button>
+    <button class="btn btn-ghost" style="padding:6px 14px;font-size:.85rem" onclick="showToast('Results')">Results</button>
+  </div>
+  <div class="gallery">
+    <div class="g-item reveal" onclick="openLightbox&&openLightbox(this)"><img src="images/g1.jpg" alt="Gallery 1" onerror="this.src='https://via.placeholder.com/400x300/1e293b/2563eb?text=Photo+1'" /><div class="g-caption">Event 1</div></div>
+    <div class="g-item reveal" onclick="openLightbox&&openLightbox(this)"><img src="images/g2.jpg" alt="Gallery 2" onerror="this.src='https://via.placeholder.com/400x300/1e293b/2563eb?text=Photo+2'" /><div class="g-caption">Event 2</div></div>
+    <div class="g-item reveal" onclick="openLightbox&&openLightbox(this)"><img src="images/g3.jpg" alt="Gallery 3" onerror="this.src='https://via.placeholder.com/400x300/1e293b/2563eb?text=Photo+3'" /><div class="g-caption">Classroom</div></div>
+    <div class="g-item reveal" onclick="openLightbox&&openLightbox(this)"><img src="images/g4.jpg" alt="Gallery 4" onerror="this.src='https://via.placeholder.com/400x300/1e293b/2563eb?text=Photo+4'" /><div class="g-caption">Results</div></div>
+  </div>
+</section>
+
+<!-- REPORT CARD DOWNLOAD -->
+<section id="reportcard">
+  <h2 class="section-title reveal">Report Card <span class="red">Download</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Get your exam report card</p>
+  <div class="pay-wrap reveal">
+    <input type="text" placeholder="Student roll number" style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:#0a0a0a;color:var(--white);font-family:inherit;font-size:1rem;margin:14px 0" />
+    <select style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:#0a0a0a;color:var(--white);font-family:inherit;font-size:1rem;margin:14px 0">
+      <option>Unit Test 1</option><option>Half Yearly</option><option>Pre-Board</option><option>Final</option>
+    </select>
+    <button class="btn btn-primary" style="width:100%" onclick="window.print()">Download PDF</button>
+  </div>
+</section>
+
+<!-- LIBRARY CATALOG -->
+<section id="libcatalog">
+  <h2 class="section-title reveal">Library <span class="red">Catalog</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Available books</p>
+  <div class="faq" style="max-width:800px">
+    <div class="faq-item reveal"><div class="faq-q">Mathematics <span>+</span></div><div class="faq-a">RS Aggarwal, NCERT, RD Sharma</div></div>
+    <div class="faq-item reveal"><div class="faq-q">Science <span>+</span></div><div class="faq-a">NCERT, Lakhmir Singh, S Chand</div></div>
+    <div class="faq-item reveal"><div class="faq-q">English <span>+</span></div><div class="faq-a">Wren &amp; Martin, NCERT</div></div>
+  </div>
+</section>
+
+<!-- HOSTEL DETAILS -->
+<section id="hosteldetails">
+  <h2 class="section-title reveal">Hostel <span class="red">Details</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Stay information</p>
+  <div class="about-grid">
+    <div class="card reveal"><h3>Warden</h3><p>Mr. Rajesh Kumar</p></div>
+    <div class="card reveal"><h3>Capacity</h3><p>50 students</p></div>
+    <div class="card reveal"><h3>Fee</h3><p>Rs.3000/month (incl. meals)</p></div>
+    <div class="card reveal"><h3>Facilities</h3><p>Wi-Fi, Laundry, Security</p></div>
+  </div>
+</section>
+
+<!-- CAFETERIA MENU -->
+<section id="cafeteria">
+  <h2 class="section-title reveal">Cafeteria <span class="red">Menu</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub reveal">Healthy meals</p>
+  <div class="about-grid">
+    <div class="card reveal"><h3>Breakfast</h3><p>Poha, Upma, Tea</p></div>
+    <div class="card reveal"><h3>Lunch</h3><p>Rice, Dal, Sabzi, Roti</p></div>
+    <div class="card reveal"><h3>Snacks</h3><p>Samosa, Sandwich, Juice</p></div>
+  </div>
+</section>
+
 <footer>
   <p>&copy; 2026 <span class="red">Digital Pathshala</span>. All rights reserved.</p>
   <p style="margin-top:6px">Created by <span class="red" style="font-weight:700">ASM</span> &bull; <span style="color:#ffd700">+91 9134441444</span></p>
