@@ -57,6 +57,14 @@
       <tbody id="admTable" style="color:var(--grey)"></tbody>
     </table>
   </div>
+  <div style="margin-top:24px">
+    <h3 style="color:var(--red);margin-bottom:12px">Upload Image to Gallery</h3>
+    <div class="pay-wrap" style="max-width:420px">
+      <input type="file" id="imgFile" accept="image/*" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;background:#f1f5f9;color:#1e293b;margin-bottom:12px" />
+      <button class="btn btn-primary" style="width:100%" onclick="uploadImageToGallery()">Upload Image</button>
+      <div id="imgUrl" style="margin-top:10px;font-size:.8rem;color:var(--grey);word-break:break-all"></div>
+    </div>
+  </div>
   <div style="margin-top:20px">
     <button class="btn btn-primary" onclick="clearAdmissions()">Clear All Records</button>
     <button class="btn btn-ghost" style="margin-left:10px" onclick="exportAdmissions()">Export JSON</button>
@@ -64,6 +72,8 @@
 </div>
 
 <div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
 <script src="app.js"></script>
 <script>
   function adminLogin(){
@@ -88,22 +98,33 @@
   function getAdmissions(){
     try { return JSON.parse(localStorage.getItem('admissions')||'[]'); } catch(e){ return []; }
   }
-  function renderAdmissions(){
-    const list=getAdmissions();
+  async function renderAdmissions(){
+    let list=getAdmissions();
+    if (typeof sb !== 'undefined' && sb) {
+      const remote=await loadAdmissionsFromSupabase();
+      if (remote.length) list=remote;
+    }
     document.getElementById('admCount').textContent=list.length;
     const today=new Date().toDateString();
-    document.getElementById('admToday').textContent=list.filter(a=>new Date(a.date).toDateString()===today).length;
+    document.getElementById('admToday').textContent=list.filter(a=>new Date(a.date||a.created_at).toDateString()===today).length;
     const tb=document.getElementById('admTable');
     tb.innerHTML=list.map((a,i)=>`<tr>
       <td style="padding:10px;border:1px solid var(--border)">${i+1}</td>
-      <td style="padding:10px;border:1px solid var(--border)">${a.name}</td>
-      <td style="padding:10px;border:1px solid var(--border)">${a.cls}</td>
-      <td style="padding:10px;border:1px solid var(--border)">${a.school}</td>
-      <td style="padding:10px;border:1px solid var(--border)">${a.fname}</td>
-      <td style="padding:10px;border:1px solid var(--border)">${a.femail}</td>
-      <td style="padding:10px;border:1px solid var(--border)">${a.mobile}</td>
-      <td style="padding:10px;border:1px solid var(--border)">${a.date}</td>
+      <td style="padding:10px;border:1px solid var(--border)">${a.name||''}</td>
+      <td style="padding:10px;border:1px solid var(--border)">${a.cls||''}</td>
+      <td style="padding:10px;border:1px solid var(--border)">${a.school||''}</td>
+      <td style="padding:10px;border:1px solid var(--border)">${a.fname||''}</td>
+      <td style="padding:10px;border:1px solid var(--border)">${a.femail||''}</td>
+      <td style="padding:10px;border:1px solid var(--border)">${a.mobile||''}</td>
+      <td style="padding:10px;border:1px solid var(--border)">${a.date||a.created_at||''}</td>
     </tr>`).join('');
+  }
+  async function uploadImageToGallery(){
+    const f=document.getElementById('imgFile').files[0];
+    if(!f){showToast('Select an image');return;}
+    const name=Date.now()+'_'+f.name;
+    const url=await uploadImage(f,name);
+    if(url){document.getElementById('imgUrl').innerHTML='Uploaded: <a href="'+url+'" target="_blank" style="color:var(--red)">'+url+'</a>';showToast('Image uploaded!');}
   }
   function clearAdmissions(){
     if(confirm('Clear all admission records?')){ localStorage.removeItem('admissions'); renderAdmissions(); showToast('Cleared'); }

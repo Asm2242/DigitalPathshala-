@@ -101,6 +101,8 @@
 </footer>
 
 <div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
 <script src="app.js"></script>
 <script>
   function openLightbox(el){
@@ -109,6 +111,26 @@
     document.getElementById('lightbox').style.display='flex';
   }
   function closeLightbox(){document.getElementById('lightbox').style.display='none';}
+</script>
+
+<script>
+(async function(){
+  if (typeof sb === 'undefined' || !sb) return;
+  try{
+    const { data, error } = await sb.storage.from(window.SUPABASE_BUCKET||'achievements').list('', {limit:50});
+    if(error || !data || !data.length) return;
+    const imgs=data.filter(x=>x.name && /\.(jpg|jpeg|png|webp|gif)$/i.test(x.name));
+    if(!imgs.length) return;
+    const gallery=document.getElementById('gallery');
+    if(!gallery) return;
+    gallery.innerHTML=imgs.map((x,i)=>{
+      const url=sb.storage.from(window.SUPABASE_BUCKET||'achievements').getPublicUrl(x.name).data.publicUrl;
+      return '<div class="g-item reveal" onclick="openLightbox(this)"><img src="'+url+'" alt="Achievement '+(i+1)+'" /><div class="g-caption">Achievement '+(i+1)+'</div></div>';
+    }).join('');
+  }catch(e){}
+})();
+function openLightbox(el){const img=el&&el.querySelector('img');if(!img)return;document.getElementById('lbImg').src=img.src;document.getElementById('lightbox').style.display='flex';}
+function closeLightbox(){document.getElementById('lightbox').style.display='none';}
 </script>
 </body>
 </html>

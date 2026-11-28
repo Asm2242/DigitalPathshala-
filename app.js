@@ -59,11 +59,13 @@ function submitAdmission(e){
     'Mobile No.':mobile
   };
   // save locally for admin
+  const record={name,cls,school,fname,femail,mobile,date:new Date().toLocaleString()};
   try{
     const list=JSON.parse(localStorage.getItem('admissions')||'[]');
-    list.push({name,cls,school,fname,femail,mobile,date:new Date().toLocaleString()});
+    list.push(record);
     localStorage.setItem('admissions',JSON.stringify(list));
   }catch(e){}
+  saveAdmissionToSupabase(record);
   fetch('https://formsubmit.co/ajax/rachitshukla555@gmail.com',{
     method:'POST',
     headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -223,4 +225,41 @@ function doSearch(){
   const pages=['Home','Batches','Admission','Pay Fee','About Coaching','About Website','Achievements','Toppers','FAQ','Contact'];
   const matches=pages.filter(x=>x.toLowerCase().includes(q));
   res.innerHTML=matches.length? 'Found: '+matches.join(', '):'No results';
+}
+
+
+// ---------- SUPABASE ----------
+const SUPABASE_READY = typeof window.supabase !== 'undefined' &&
+  window.SUPABASE_URL && window.SUPABASE_URL.indexOf('YOUR_PROJECT') === -1 &&
+  window.SUPABASE_ANON_KEY && window.SUPABASE_ANON_KEY.indexOf('YOUR_ANON') === -1;
+let sb = null;
+if (SUPABASE_READY) {
+  sb = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+}
+
+async function saveAdmissionToSupabase(data) {
+  if (!sb) return false;
+  try {
+    const { error } = await sb.from(window.SUPABASE_TABLE || 'admissions').insert([data]);
+    if (error) throw error;
+    return true;
+  } catch (e) { return false; }
+}
+
+async function loadAdmissionsFromSupabase() {
+  if (!sb) return [];
+  try {
+    const { data, error } = await sb.from(window.SUPABASE_TABLE || 'admissions').select('*').order('created_at',{ascending:false});
+    if (error) throw error;
+    return data || [];
+  } catch (e) { return []; }
+}
+
+async function uploadImage(file, fileName) {
+  if (!sb) { showToast('Supabase not configured'); return null; }
+  try {
+    const { data, error } = await sb.storage.from(window.SUPABASE_BUCKET || 'achievements').upload(fileName, file, {upsert:true});
+    if (error) throw error;
+    return sb.storage.from(window.SUPABASE_BUCKET || 'achievements').getPublicUrl(fileName).data.publicUrl;
+  } catch (e) { showToast('Upload failed: '+e.message); return null; }
 }
