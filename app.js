@@ -166,26 +166,6 @@ function subscribeNews(){
   .catch(()=>showToast('Failed. Try again.'));
 }
 
-// Animated counters for hero stats
-(function(){
-  const nums=document.querySelectorAll('.hero-stats .num');
-  const animate=()=>{
-    nums.forEach(el=>{
-      const target=el.textContent;
-      const num=parseFloat(target.replace(/[^0-9.]/g,''));
-      if(isNaN(num)) return;
-      let cur=0;const steps=30;const inc=num/steps;
-      const t=setInterval(()=>{cur+=inc;if(cur>=num){cur=num;clearInterval(t);}
-        el.textContent=target.replace(/[0-9.]+/,Math.round(cur).toString());
-      },40);
-    });
-  };
-  const hero=document.querySelector('.hero-stats');
-  if(!hero) return;
-  const io=new IntersectionObserver((e)=>{if(e[0].isIntersecting){animate();io.disconnect();}},{threshold:.3});
-  io.observe(hero);
-})();
-
 // Contact form submit (FormSubmit)
 function submitContact(e){
   if(e) e.preventDefault();
