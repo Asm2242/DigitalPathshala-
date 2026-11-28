@@ -14,7 +14,7 @@ if(p){
 const splash=document.getElementById('splash');
 if(splash){
   window.addEventListener('load',()=>{
-    setTimeout(()=>{splash.classList.add('hide')},3600);
+    setTimeout(()=>{splash.classList.add('hide')},1800);
   });
 }
 
@@ -58,6 +58,12 @@ function submitAdmission(e){
     "Father's Email":femail,
     'Mobile No.':mobile
   };
+  // save locally for admin
+  try{
+    const list=JSON.parse(localStorage.getItem('admissions')||'[]');
+    list.push({name,cls,school,fname,femail,mobile,date:new Date().toLocaleString()});
+    localStorage.setItem('admissions',JSON.stringify(list));
+  }catch(e){}
   fetch('https://formsubmit.co/ajax/rachitshukla555@gmail.com',{
     method:'POST',
     headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -66,7 +72,7 @@ function submitAdmission(e){
     showToast('Admission details sent successfully!');
     const f=document.getElementById('admissionForm'); if(f) f.reset();
   }).catch(err=>{
-    showToast('Failed to send. Please try again.');
+    showToast('Saved locally. Email send failed.');
   }).finally(()=>{
     if(btn){btn.disabled=false;btn.textContent='Submit';}
   });
@@ -130,7 +136,7 @@ if(isHome && !sessionStorage.getItem('welcomed')){
   document.getElementById('popClose').onclick=close;
   pop.onclick=(e)=>{if(e.target===pop)close();};
   setTimeout(close,7000);
-},4500);
+},2400);
 }
 
 // Back to top + floating call button (all pages)
