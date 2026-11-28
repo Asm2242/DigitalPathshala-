@@ -62,7 +62,7 @@
   }
   @keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
   .splash-logo{
-    font-family:'Orbitron',sans-serif;
+    font-family:'Montserrat',sans-serif;
     font-size:clamp(2rem,7vw,5.5rem);
     font-weight:900;letter-spacing:4px;
     color:var(--white);text-align:center;
@@ -109,7 +109,7 @@
     border-bottom:1px solid var(--border);
   }
   .brand{
-    font-family:'Orbitron',sans-serif;font-weight:900;font-size:1.25rem;
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.25rem;
     letter-spacing:2px;color:var(--white);
   }
   .brand .red{color:var(--red)}
@@ -172,7 +172,7 @@
     pointer-events:none;
   }
   .hero h1{
-    font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,8vw,6rem);
+    font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,8vw,6rem);
     font-weight:900;line-height:1.05;letter-spacing:2px;
   }
   .hero h1 .red{color:var(--red);text-shadow:0 0 40px var(--red-glow)}
@@ -188,12 +188,12 @@
   .btn-ghost:hover{border-color:var(--red);color:var(--red2)}
   .hero-stats{margin-top:60px;display:flex;gap:40px;flex-wrap:wrap;justify-content:center}
   .stat{text-align:center}
-  .stat .num{font-family:'Orbitron',sans-serif;font-size:2.2rem;font-weight:900;color:var(--red)}
+  .stat .num{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:var(--red)}
   .stat .lbl{color:var(--grey);font-size:.85rem;margin-top:4px}
   /* ---------- SECTIONS ---------- */
   section{padding:80px 20px;max-width:1200px;margin:0 auto}
   .section-title{
-    font-family:'Orbitron',sans-serif;font-size:clamp(1.6rem,4vw,2.6rem);
+    font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,4vw,2.6rem);
     font-weight:800;margin-bottom:10px;text-align:center;
   }
   .section-title .red{color:var(--red)}
@@ -219,7 +219,7 @@
     width:70px;height:70px;border-radius:50%;margin-bottom:14px;
     background:linear-gradient(135deg,var(--red),#5a0005);
     display:flex;align-items:center;justify-content:center;
-    font-family:'Orbitron',sans-serif;font-weight:900;font-size:1.4rem;color:#fff;
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#fff;
     box-shadow:0 0 18px var(--red-glow);
   }
   /* website team */
@@ -236,10 +236,10 @@
     position:absolute;top:18px;right:18px;background:var(--red);color:#fff;
     font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:20px;
   }
-  .batch-card h3{font-family:'Orbitron',sans-serif;font-size:1.5rem;margin-bottom:6px}
+  .batch-card h3{font-family:'Montserrat',sans-serif;font-size:1.5rem;margin-bottom:6px}
   .batch-card .cls{color:var(--grey);margin-bottom:16px}
   .batch-card .fee{
-    font-family:'Orbitron',sans-serif;font-size:2.4rem;font-weight:900;color:var(--red);
+    font-family:'Montserrat',sans-serif;font-size:2.4rem;font-weight:900;color:var(--red);
     margin:10px 0 4px;
   }
   .batch-card .fee small{font-size:.9rem;color:var(--grey);font-weight:400}
@@ -274,7 +274,7 @@
     margin-top:18px;padding:18px;border:1px dashed var(--red);border-radius:12px;
     background:rgba(37,99,235,.05);
   }
-  .upi-id{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--red2);word-break:break-all}
+  .upi-id{font-family:'Montserrat',sans-serif;font-size:1.1rem;color:var(--red2);word-break:break-all}
   .qr{
     width:160px;height:160px;margin:14px auto;background:#fff;border-radius:8px;
     display:flex;align-items:center;justify-content:center;color:#000;font-size:.8rem;
@@ -412,3 +412,22 @@ body.light-theme .card,body.light-theme .batch-card,body.light-theme .form-wrap,
 body.light-theme .form-group input,body.light-theme .form-group select,body.light-theme .pay-wrap input,body.light-theme .news-wrap input{background:#f0f0f0;color:#111}
 body.light-theme footer{color:#555}
 body.light-theme .section-sub,body.light-theme .faq-a{color:#555}
+
+
+/* ---------- TEXT ANIMATION ON BRAND NAME ---------- */
+.brand{
+  background:linear-gradient(90deg,#2563eb,#60a5fa,#f59e0b,#2563eb);
+  background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:textShine 4s linear infinite;
+}
+.hero h1{
+  background:linear-gradient(90deg,#ffffff,#2563eb,#f59e0b,#ffffff);
+  background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:textShine 6s linear infinite;
+}
+@keyframes textShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+
