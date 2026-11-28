@@ -420,14 +420,11 @@ body.light-theme .section-sub,body.light-theme .faq-a{color:#555}
   background-size:300% 100%;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent;
-  animation:textShine 4s linear infinite;
 }
 .hero h1{
   background:linear-gradient(90deg,#ffffff,#16a34a,#f59e0b,#ffffff);
   background-size:300% 100%;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent;
-  animation:textShine 6s linear infinite;
 }
-@keyframes textShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 
