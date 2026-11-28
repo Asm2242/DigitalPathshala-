@@ -118,11 +118,11 @@ if(isHome && !sessionStorage.getItem('welcomed')){
   pop.id='welcomePop';
   pop.style.cssText='position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);opacity:0;transition:opacity .4s ease';
   pop.innerHTML=`
-    <div style="background:linear-gradient(160deg,#1f0004,#0a0a0a);border:1px solid rgba(37,99,235,.5);border-radius:20px;padding:40px 32px;max-width:460px;text-align:center;box-shadow:0 0 60px rgba(37,99,235,.25),0 20px 60px rgba(0,0,0,.6);transform:scale(.7);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease">
-      <div style="font-family:Montserrat,sans-serif;font-size:1.6rem;font-weight:900;color:#2563eb;margin-bottom:6px;text-shadow:0 0 24px rgba(37,99,235,.6)">Digital Pathshala</div>
-      <div style="width:60px;height:3px;background:#2563eb;margin:10px auto 18px;border-radius:2px;box-shadow:0 0 12px rgba(37,99,235,.6)"></div>
-      <p style="color:#f5f5f5;font-size:1.1rem;line-height:1.7;margin-bottom:22px">Mr. Shrestha Tiwari <span style="color:#2563eb;font-weight:700">welcomes you</span>.<br/>Join with us and <span style="color:#2563eb;font-weight:700">make your kids future</span>.</p>
-      <button id="popClose" style="background:#2563eb;color:#fff;border:none;padding:11px 30px;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;font-size:1rem;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(37,99,235,.4)">OK</button>
+    <div style="background:linear-gradient(160deg,#1f0004,#0a0a0a);border:1px solid rgba(22,163,74,.5);border-radius:20px;padding:40px 32px;max-width:460px;text-align:center;box-shadow:0 0 60px rgba(22,163,74,.25),0 20px 60px rgba(0,0,0,.6);transform:scale(.7);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease">
+      <div style="font-family:Montserrat,sans-serif;font-size:1.6rem;font-weight:900;color:#16a34a;margin-bottom:6px;text-shadow:0 0 24px rgba(22,163,74,.6)">Digital Pathshala</div>
+      <div style="width:60px;height:3px;background:#16a34a;margin:10px auto 18px;border-radius:2px;box-shadow:0 0 12px rgba(22,163,74,.6)"></div>
+      <p style="color:#f5f5f5;font-size:1.1rem;line-height:1.7;margin-bottom:22px">Mr. Shrestha Tiwari <span style="color:#16a34a;font-weight:700">welcomes you</span>.<br/>Join with us and <span style="color:#16a34a;font-weight:700">make your kids future</span>.</p>
+      <button id="popClose" style="background:#16a34a;color:#fff;border:none;padding:11px 30px;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;font-size:1rem;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(22,163,74,.4)">OK</button>
     </div>`;
   document.body.appendChild(pop);
   requestAnimationFrame(()=>{pop.style.opacity='1';const box=pop.querySelector('div');box.style.transform='scale(1)';box.style.opacity='1';});
